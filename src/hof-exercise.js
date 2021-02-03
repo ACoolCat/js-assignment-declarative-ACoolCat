@@ -29,21 +29,53 @@ const calculateTotalImperative = (items, tax) => {
 /**********/
 
 // prices: (items: [{price: number}]) -> [number]
-const prices = undefined; // TODO - Implementation
+const prices = items => {
+  let itemPrice = [];
+  for (var i = 0; i < items.length; i++) {
+    itemPrice.push(items[i].price);
+  }
+  return itemPrice;
+}
+// TODO - Implementation
 
 // sum: (numbers: [number]) -> number
-const sum = undefined; // TODO - Implementation
+const sum = numbers => {
+  let counter = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    counter = numbers[i] + counter
+  }
+  return counter;
+}
+
+// TODO - Implementation
 
 // selectTaxable: (items: [{taxable: boolean}]) -> [{taxable: boolean}]
-const selectTaxable = undefined; // TODO - Implementation
+const selectTaxable = items => {
+  let taxableItems = [];
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].taxable = true) {
+      taxableItems.push(items[i]);
+    }
+  }
+  return taxableItems;
+} // TODO - Implementation
 
 // applyTax: (prices: [number], tax: number) -> [number]
-const applyTax = undefined; // TODO - Implementation
+const applyTax = (prices, tax) => {
+  let taxedItems = [];
+  for (var i = 0; i < prices.length; i++) {
+    let newTax = prices[i] * tax;
+    taxedItems.push(newTax);
+  }
+  return taxedItems;
+} // TODO - Implementation
 
 // baseSum: TODO - Type Signature
 const baseSum = items => sum(prices(items));
 
+
 // taxSum: TODO - Type Signature
+
 const taxSum = (items, tax) => sum(applyTax(prices(selectTaxable(items)), tax));
 
 // calculateTotalDeclarative: TODO - Type Signature
